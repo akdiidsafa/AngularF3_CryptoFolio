@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div class="container">
+  <h1>{{ total() | currency:'EUR' }}</h1>
+<button (click)="cryptoService.simulateMarket()">Simuler le marché </button>
+<div class="grid">
+  @for (c of coins(); track c.id) {
+    <app-crypto-card [coin]="coinSignal(c.id)"[updateQuantity]="updateCoinQuantity.bind(this, c.id)">
+    </app-crypto-card>
+  }
+</div>
+
+</div>

@@ -1,9 +1,12 @@
 import { Component, Input, Signal } from '@angular/core';
-import { Coin } from '../../services/crypto.service';
+import { Coin } from '../../models/crypto.model';
+import { CommonModule } from '@angular/common';
+
+
 @Component({
   selector: 'app-crypto-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './crypto-card.component.html',
   styleUrl: './crypto-card.component.css'
 })
