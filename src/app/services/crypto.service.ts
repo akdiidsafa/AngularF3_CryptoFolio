@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal, effect, untracked } from '@angular/core';
 import { Coin } from '../models/crypto.model';
 
 @Injectable({
@@ -12,6 +12,31 @@ export class CryptoService {
 {id: 'eth',name: 'Ethereum',price: 3500,quantity: 5, change24h: 0, lastUpdate: new Date()},
 { id: 'ada', name: 'Cardano', price: 1.25, quantity: 1000, change24h: 0, lastUpdate: new Date() }
   ]);
+
+  isRich = signal<boolean>(false);
+
+  constructor(){
+    effect(()=>{
+      console.log("⚡ Marché mis à jour !");
+    });
+
+    effect(() => {
+      const total = this.totalPortfolio();
+      const isNowRich = total > 50000;
+      
+      // CORRECTION : Utiliser untracked() pour éviter le cycle
+      untracked(() => {
+        const currentIsRich = this.isRich();
+        this.isRich.set(isNowRich);
+      });
+    });
+  }
+
+  totalPortfolio = computed(() => {
+    return this.coins().reduce((total, coin) => {
+      return total + (coin.price * coin.quantity);
+    }, 0);
+  });
 
 
   updateQuantity(id: string, amount: number) {
@@ -40,4 +65,5 @@ export class CryptoService {
       })
     );
   }
+
 }

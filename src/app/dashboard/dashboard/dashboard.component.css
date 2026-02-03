@@ -37,3 +37,14 @@ button:hover {
 
 
 }
+
+.whale-default{
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+  display: none;
+}
+
+.whale-alert{
+  display: block;
+}
