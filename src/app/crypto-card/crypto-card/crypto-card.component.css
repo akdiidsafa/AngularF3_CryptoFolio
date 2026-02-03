@@ -1,0 +1,44 @@
+.card {
+  width: 280px;
+  padding: 20px;
+  background: linear-gradient(180deg, #1b2a3a, #0f1b2d);
+  border-radius: 12px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  font-family: Arial, sans-serif;
+}
+
+.card h1 {
+  margin-bottom: 16px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.card p {
+  margin: 6px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.card button {
+  margin-top: 14px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #6c6cff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card button + button {
+  margin-left: 10px;
+  background: #7a7aff;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  background: #5a5aff;
+}

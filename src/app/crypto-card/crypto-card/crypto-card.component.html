@@ -1,1 +1,10 @@
-<p>crypto-card works!</p>
+<div class="card">
+    <h1>{{coin().name | uppercase}}</h1>
+    <p>Prix:{{coin().price | currency:"US"}}</p>
+    <p>Validation:24h{{coin().change24h | number : "1.2-2"}}%</p>
+    <p>Quantite:{{coin().quantity | number:"1.0-4"}}</p>
+    <p>Derniere MAJ :{{coin().lastUpdate | date:"h:mm:ss"}} AM </p>
+
+    <button (click)="acheter()" >Acheter</button>
+    <button (click)="vender()" >Vendre</button>
+</div>
