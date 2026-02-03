@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { CryptoService } from './services/crypto.service';
 
 @Component({
   selector: 'app-root',

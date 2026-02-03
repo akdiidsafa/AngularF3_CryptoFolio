@@ -1,4 +1,5 @@
 <div class="container">
+  <p [class.whale-alert]="cryptoService.isRich()" class="whale-default">🐋 Whale</p>
   <h1>{{ total() | currency:'EUR' }}</h1>
 <button (click)="cryptoService.simulateMarket()">Simuler le marché </button>
 <div class="grid">
